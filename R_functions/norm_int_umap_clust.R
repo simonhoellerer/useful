@@ -47,7 +47,7 @@ norm_int_umap_clust <- function(
 
   msg <- glue::glue(
     "Data is normalized using Seurat::SCTransform() with n_features = {n_features}\n",
-    "Adding additional markers to scale.data with add.markers = {vars_markers_str} (top 10 shown)\n",
+    if (!is.null(add.markers)) "Adding additional markers to scale.data with add.markers = {vars_markers_str} (top 10 shown)\n" else "",
     "Running PCA with Seurat::RunPCA() with npcs = {npcs}\n",
     "Same number of PCs ({npcs}) for both integration and UMAP\n",
     "Integration is done using Seurat::IntegrateLayers() with method = \"{method}\"\n",
